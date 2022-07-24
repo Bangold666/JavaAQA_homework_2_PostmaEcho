@@ -13,14 +13,14 @@ public class postmanEchoTest {
 // Предусловия
         given()
                 .baseUri("https://postman-echo.com")
-                .body("ru.netology.api.postman") // отправляемые данные (заголовки и query можно выставлять аналогично)
+                .body("ru.netology.api.postman")
 // Выполняемые действия
                 .when()
                 .post("/post")
 // Проверки
                 .then()
                     .statusCode(200)
-                    .body("data", equalTo("ru.netology.api.postman "))
+                    .body("data", equalTo("ru.netology.api.postman"))
         ;
     }
 
