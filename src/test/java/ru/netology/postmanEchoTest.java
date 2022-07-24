@@ -37,7 +37,10 @@ public class postmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("some data"))
+                .body("data", equalTo("Я спросил:,\n" +
+                        "С чего начать прикажете?,\n" +
+                        "В качестве жениха - с того кто вы такой, откуда? \n" +
+                        "Зовусь Магометом я."))
         ;
     }
 }
