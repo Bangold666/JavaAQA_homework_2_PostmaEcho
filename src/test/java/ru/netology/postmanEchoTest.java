@@ -20,7 +20,7 @@ public class postmanEchoTest {
 // Проверки
                 .then()
                     .statusCode(200)
-                    .body("data", equalTo("ru.netology.api.postman"))
+                    .body("data", equalTo("raw "))
         ;
     }
 }
