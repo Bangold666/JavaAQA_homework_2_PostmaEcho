@@ -9,35 +9,35 @@ public class postmanEchoTest {
 
     @Test
     void shouldPostmanEchoApiFirstTest() {
-        // Given - When - Then
-// Предусловия
         given()
                 .baseUri("https://postman-echo.com")
+                //.body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
                 .body("ru.netology.api.postman")
-// Выполняемые действия
+                // Выполняемые действия
                 .when()
                 .post("/post")
-// Проверки
+                // Проверки
                 .then()
-                    .statusCode(200)
-                    .body("data", equalTo("ru.netology.api.postman"))
+                .statusCode(200)
+                //.body(/* --> ваша проверка здесь <-- */)
+                .body("data", equalTo("ru.netology.api.postman"))
         ;
     }
 
-//    @Test
-//    void shouldPostmanEchoApiSecondTest() {
-//        // Given - When - Then
-//// Предусловия
-//        given()
-//                .baseUri("https://postman-echo.com")
-//                .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
-//// Выполняемые действия
-//                .when()
-//                .post("/post")
-//// Проверки
-//                .then()
-//                .statusCode(200)
-//                .body("data", equalTo("raw "))
-//        ;
-//    }
+    @Test
+    void shouldPostmanEchoApiSecondTest() {
+        given()
+                .baseUri("https://postman-echo.com")
+                .contentType("text/plain; charset=UTF-8")
+                .body("Я спросил:,\n" +
+                        "С чего начать прикажете?,\n" +
+                        "В качестве жениха - с того кто вы такой, откуда? \n" +
+                        "Зовусь Магометом я.")
+                .when()
+                .post("/post")
+                .then()
+                .statusCode(200)
+                .body("data", equalTo("some data"))
+        ;
+    }
 }
